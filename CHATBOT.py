@@ -112,36 +112,39 @@ def scroll_to_end():
 # Set up the GUI
 root = tk.Tk()
 root.title("Chatbot")
-root.geometry("600x500")
+root.geometry("1000x800")  # Agrandir la fenêtre principale
 
 night_mode = False
 
-chat_window = scrolledtext.ScrolledText(root, wrap=tk.WORD, state='disabled', bg="#ffffff", fg="#000000")
-chat_window.tag_configure('user', foreground="#007BFF")  # Blue for user
-chat_window.tag_configure('chatbot', foreground="#28A745")  # Green for chatbot
-chat_window.tag_configure('typing', foreground="#FF5733")  # Orange for typing indicator
-chat_window.pack(padx=5, pady=5, fill=tk.BOTH, expand=True)
+# Configurer la police avec une taille plus grande
+text_font = ('Arial', 16)  # Taille de la police agrandie
+
+chat_window = scrolledtext.ScrolledText(root, wrap=tk.WORD, state='disabled', bg="#ffffff", fg="#000000", font=text_font)
+chat_window.tag_configure('user', foreground="#007BFF", font=text_font)  # Blue for user
+chat_window.tag_configure('chatbot', foreground="#28A745", font=text_font)  # Green for chatbot
+chat_window.tag_configure('typing', foreground="#FF5733", font=text_font)  # Orange for typing indicator
+chat_window.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
 
 entry_frame = tk.Frame(root, bg="#f0f0f0")
-entry_frame.pack(padx=10, pady=5, fill=tk.X, expand=True)
+entry_frame.pack(padx=20, pady=10, fill=tk.X, expand=True)
 
-entry = tk.Entry(entry_frame, width=60, bg="#ffffff", fg="#000000")
+entry = tk.Entry(entry_frame, width=100, bg="#ffffff", fg="#000000", font=text_font)  # Agrandir la zone de saisie et la police
 entry.pack(side=tk.LEFT, fill=tk.X, expand=True)
 entry.bind("<Return>", send_message)
 
 button_frame = tk.Frame(root, bg="#f0f0f0")
-button_frame.pack(pady=2)
+button_frame.pack(pady=5)
 
-send_button = tk.Button(button_frame, text="Send", command=send_message, bg="#4CAF50", fg="#ffffff")
-send_button.pack(side=tk.LEFT, padx=5)
+send_button = tk.Button(button_frame, text="Send", command=send_message, bg="#4CAF50", fg="#ffffff", font=text_font)
+send_button.pack(side=tk.LEFT, padx=10)
 
-clear_button = tk.Button(button_frame, text="Clear", command=clear_chat, bg="#f44336", fg="#ffffff")
-clear_button.pack(side=tk.LEFT, padx=5)
+clear_button = tk.Button(button_frame, text="Clear", command=clear_chat, bg="#f44336", fg="#ffffff", font=text_font)
+clear_button.pack(side=tk.LEFT, padx=10)
 
-copy_button = tk.Button(button_frame, text="Copy", command=copy_to_clipboard, bg="#2196F3", fg="#ffffff")
-copy_button.pack(side=tk.LEFT, padx=5)
+copy_button = tk.Button(button_frame, text="Copy", command=copy_to_clipboard, bg="#2196F3", fg="#ffffff", font=text_font)
+copy_button.pack(side=tk.LEFT, padx=10)
 
-night_mode_button = tk.Button(button_frame, text="Night Mode", command=toggle_night_mode, bg="#FFC107", fg="#000000")
-night_mode_button.pack(side=tk.LEFT, padx=5)
+night_mode_button = tk.Button(button_frame, text="Night Mode", command=toggle_night_mode, bg="#FFC107", fg="#000000", font=text_font)
+night_mode_button.pack(side=tk.LEFT, padx=10)
 
 root.mainloop()
