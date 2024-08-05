@@ -120,17 +120,17 @@ chat_window = scrolledtext.ScrolledText(root, wrap=tk.WORD, state='disabled', bg
 chat_window.tag_configure('user', foreground="#007BFF")  # Blue for user
 chat_window.tag_configure('chatbot', foreground="#28A745")  # Green for chatbot
 chat_window.tag_configure('typing', foreground="#FF5733")  # Orange for typing indicator
-chat_window.pack(padx=20, pady=20, fill=tk.BOTH, expand=True)
+chat_window.pack(padx=5, pady=5, fill=tk.BOTH, expand=True)
 
 entry_frame = tk.Frame(root, bg="#f0f0f0")
-entry_frame.pack(padx=20, pady=10, fill=tk.X, expand=True)
+entry_frame.pack(padx=10, pady=5, fill=tk.X, expand=True)
 
 entry = tk.Entry(entry_frame, width=60, bg="#ffffff", fg="#000000")
 entry.pack(side=tk.LEFT, fill=tk.X, expand=True)
 entry.bind("<Return>", send_message)
 
 button_frame = tk.Frame(root, bg="#f0f0f0")
-button_frame.pack(pady=10)
+button_frame.pack(pady=2)
 
 send_button = tk.Button(button_frame, text="Send", command=send_message, bg="#4CAF50", fg="#ffffff")
 send_button.pack(side=tk.LEFT, padx=5)
